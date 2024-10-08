@@ -1,11 +1,37 @@
-# SauceLab Automation Framework
+# SauceLab-Cucumber-Framework ![Maven](https://img.shields.io/badge/Maven-C71A2C?style=flat&logo=apachemaven&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white) ![Cucumber](https://img.shields.io/badge/Cucumber-23D96C?style=flat&logo=cucumber&logoColor=white)
+
+## Table of Contents
+1. [Overview](#overview)
+2. [Project Structure](#project-structure)
+3. [Installation and Setup](#installation-and-setup)
+4. [Running the Tests](#running-the-tests)
+5. [Test Scenarios](#test-scenarios)
+6. [Reports](#reports)
+7. [Dependencies](#dependencies)
+8. [Contributing](#contributing)
+9. [Contact](#contact)
+
+---
 
 ## Overview
-This repository contains an automation framework designed to test the login functionality of the SauceDemo application using Cucumber and Selenium WebDriver. The framework is structured to support maintainable and scalable test automation using Java. It follows a typical BDD (Behavior-Driven Development) pattern.
+This repository demonstrates the use of a **Cucumber BDD Framework** with **Selenium WebDriver** for automating the login feature of the [SauceDemo](https://www.saucedemo.com/) application. This framework is built using **Java** and **Maven**, with clearly defined steps for test automation. It is designed to be scalable, reusable, and maintainable, adhering to the best practices of automation and software testing.
+
+### Key Features:
+- Modular framework using the Page Object Model (POM).
+- BDD approach using **Cucumber** to write scenarios in Gherkin.
+- Integration with **Maven** for project management and dependency handling.
+- Generates detailed test execution reports.
+
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/873/873120.png" alt="SauceLabs Logo" width="120" height="120">
+</p>
+
+---
 
 ## Project Structure
-```plaintext
-SauceLab
+
+```bash
+SauceLab-Cucumber-Framework
 ├── src
 │   ├── main
 │   │   └── java
@@ -23,24 +49,25 @@ SauceLab
 ├── pom.xml
 ```
 
-### Folders and Files
-- **src/main/java**: Contains core utility files or helper classes (if any).
-- **src/test/java**: 
-  - `LoginStepDefination`: Stores the step definitions for the login functionality.
-  - `testRunner`: Contains the runner class (`LoginRunner.java`) that triggers the execution of Cucumber test scenarios.
-- **src/test/resources**: Stores configuration files or additional test resources.
-- **FeatureFiles**: Contains `.feature` files written in Gherkin language, which define the scenarios to be executed.
-- **target/cucumber-reports**: Contains the generated reports post-execution.
-- **pom.xml**: Maven POM file managing project dependencies and build configurations.
+### Explanation of Folder Structure
+- **`src/main/java`**: Contains core utility classes.
+- **`src/test/java`**: 
+  - `LoginStepDefination`: Step definitions written in Java.
+  - `testRunner`: Test Runner classes for executing Cucumber scenarios.
+- **`FeatureFiles`**: Contains `.feature` files, defining test scenarios in Gherkin syntax.
+- **`target/cucumber-reports`**: Stores the execution reports.
+- **`pom.xml`**: Maven POM file for managing project dependencies.
+
+---
 
 ## Installation and Setup
-### Prerequisites
-- JDK 8 or higher
-- Maven 3.6 or higher
-- IDE (e.g., Eclipse or IntelliJ IDEA)
-- Browser drivers (e.g., `chromedriver` for Chrome)
+### Prerequisites:
+- ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white) **Java 8 or higher**
+- ![Maven](https://img.shields.io/badge/Maven-C71A2C?style=flat&logo=apachemaven&logoColor=white) **Maven 3.6 or higher**
+- ![IDE](https://img.shields.io/badge/IDE-Eclipse%20or%20IntelliJ%20IDEA-blue?style=flat&logo=eclipseide) **Eclipse/IntelliJ IDEA**
+- ![ChromeDriver](https://img.shields.io/badge/ChromeDriver-4285F4?style=flat&logo=googlechrome&logoColor=white) Browser drivers (e.g., `chromedriver` for Chrome)
 
-### Steps to Clone and Setup the Project
+### Setup Steps:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/yuvrajchavale/SauceLab-Cucumber-Framework.git
@@ -50,24 +77,27 @@ SauceLab
    cd SauceLab-Cucumber-Framework
    ```
 3. **Install Dependencies**:
-   Run the following Maven command to download the required dependencies:
    ```bash
    mvn clean install
    ```
+4. **Set Up ChromeDriver Path**:
+   Ensure that the path to `chromedriver` is set correctly in the system environment variables.
 
-4. **Update the `chromedriver` Path**:
-   Make sure that the path to the `chromedriver` executable is correctly set in your system's environment variables or update the path in your code.
+---
 
 ## Running the Tests
-To run the tests, use the following command in the root directory:
+To run the tests, navigate to the project root directory and execute the following command:
+
 ```bash
 mvn test
 ```
 
-Alternatively, right-click on `LoginRunner.java` in your IDE and select **Run As** > **JUnit Test**.
+Alternatively, you can run the `LoginRunner.java` directly from your IDE as a JUnit test.
+
+---
 
 ## Test Scenarios
-The test scenarios are written using the Gherkin language in the `SauceLogin.feature` file. Below is an example of the login test scenario:
+The test scenarios are defined in the `SauceLogin.feature` file using the **Gherkin** syntax:
 
 ```gherkin
 Feature: SauceDemo Login Feature
@@ -78,18 +108,21 @@ Feature: SauceDemo Login Feature
     Then User should be navigated to the home page
 ```
 
+Each step is mapped to the corresponding Java method in the `LoginStepDefination.java` file.
+
+---
+
 ## Reports
-The generated reports after test execution can be found under the `target/cucumber-reports` directory. The framework supports HTML, JSON, and JUnit formats. Open the `cucumber-html-report.html` file for a detailed report.
+Test execution generates reports in different formats, which can be found under the `target/cucumber-reports` directory. Open the HTML report for a detailed overview of the test results:
+
+- **HTML Report**: `cucumber-html-report.html`
+- **JSON Report**: `cucumber.json`
+- **JUnit Report**: `cucumber.xml`
+
+---
 
 ## Dependencies
-The project is configured with the following main dependencies:
-
-- **Selenium WebDriver**
-- **Cucumber JVM**
-- **JUnit**
-- **Maven**
-
-For a complete list, refer to the `pom.xml` file.
+The project uses the following dependencies:
 
 ```xml
 <dependencies>
@@ -116,15 +149,13 @@ For a complete list, refer to the `pom.xml` file.
 </dependencies>
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-For any queries or issues, please reach out to [Yuvraj Chavale](https://github.com/yuvrajchavale).
+Refer to the `pom.xml` file for more details.
 
 ---
 
-Let me know if you'd like any modifications!
+## Contributing
+Contributions are welcome! Feel free to open a pull request or create an issue for any feature requests or bug fixes.
+
+## Contact
+For any queries or assistance, please reach out to [Yuvraj Chavale](https://github.com/yuvrajchavale).
+
